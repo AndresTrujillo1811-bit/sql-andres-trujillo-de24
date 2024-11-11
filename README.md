@@ -1,1 +1,1 @@
-# sql-andres-trujillo-de24
+# SQL course using duckdb
