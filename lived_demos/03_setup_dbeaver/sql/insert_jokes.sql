@@ -1,5 +1,5 @@
 INSERT
-    INTO
+    INTO -- used to insert new records in the table
 	funny_jokes (id,
 	joke_test,
 	rating)

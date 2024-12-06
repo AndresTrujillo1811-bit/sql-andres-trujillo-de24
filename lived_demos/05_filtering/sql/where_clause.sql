@@ -1,24 +1,12 @@
-SELECT * FROM main.data_jobs;
-
-SELECT COUNT(*) FROM main.data_jobs;
-
--- filtering salary_in_usd lower than 50k
-SELECT * FROM main.data_jobs WHERE salary_in_usd < 50000;
-
 SELECT
-	COUNT(*) AS number_rows_lower_than_50k
+	COUNT(*)
 FROM
 	main.data_jobs
-WHERE
-	salary_in_usd < 50000;
-	
--- focus on experience_level
-SELECT
-	DISTINCT experience_level
-FROM
-	main.data_jobs;
+WHERE -- used to filter records
+	salary_in_usd < 50000 ;
 
 
+-- find entry level jobs
 SELECT
 	*
 FROM
@@ -26,16 +14,17 @@ FROM
 WHERE
 	experience_level = 'EN';
 
-
+-- find median salary for entry level jobs
 SELECT
-	MEDIAN(salary_in_usd) 
+	MEDIAN(salary_in_usd) AS median_salary_usd
 FROM
 	main.data_jobs
 WHERE
 	experience_level = 'EN';
 
+-- find median salary for mid level jobs
 SELECT
-	MEDIAN(salary_in_usd) 
+	MEDIAN(salary_in_usd) AS median_salary_usd
 FROM
 	main.data_jobs
 WHERE
