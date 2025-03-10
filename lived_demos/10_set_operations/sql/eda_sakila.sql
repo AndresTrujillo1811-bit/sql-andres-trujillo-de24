@@ -1,47 +1,53 @@
+-- we see many tables, let's investigate a few of them
 DESC;
 
--- film: film_id
+-- film table
 SELECT * FROM main.film;
 
 DESC TABLE main.film;
 
+-- 1000 rows
 SELECT
 	COUNT(*) AS number_movies,
-	COUNT(DISTINCT title) AS unique_titles
+	COUNT(DISTINCT title) AS unique_number_movies -- if same then no duplicates 
 FROM
 	main.film;
+
+-- note film_id 
+SELECT * FROM main.film;
 
 SELECT DISTINCT rating FROM main.film;
 
 
 
--- film_actor: actor_id and film_id 
-SELECT * FROM main.film_actor; 
+-- film_actor table - note actor_id and film_id
+SELECT * FROM main.film_actor;
 
--- actor: actor_id
+DESC TABLE main.film_actor;
+
+-- note actor_id and names
 SELECT * FROM main.actor;
 
 
--- film_category: film_id, category_id
+-- category
 SELECT * FROM main.film_category;
-
 SELECT * FROM main.category;
 
-
--- customers 
-SELECT * FROM main.customer;
-
+-- customer
 SELECT
-	store_id,
-	COUNT(*) AS number_customers
+	*
 FROM
 	main.customer c
-GROUP BY
-	store_id
-ORDER BY
-	store_id ASC;
+	
+-- using c for reference as we'll be using set operations later for compound querying
+SELECT
+	'customer' AS TYPE,
+	c.first_name,
+	c.last_name
+FROM
+	main.customer c
+WHERE
+	c.first_name LIKE 'D%';
 
-
-SELECT * FROM main.store;
-
---- more EDAs left for reader
+	
+-- more EDAs left for reader as I don't want to take away all fun for you

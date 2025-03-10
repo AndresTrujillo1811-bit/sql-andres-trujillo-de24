@@ -70,7 +70,7 @@ SELECT
 FROM
 	main.cleaned_food
 WHERE
-	week BETWEEN '1' AND '12'
+	week BETWEEN '49' AND '12'
 GROUP BY
 	food
 ORDER BY
